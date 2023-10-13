@@ -61,6 +61,6 @@ class ProfileController extends Controller
     public function calendar()
     {
         // カレンダー関連の処理を記述
-        return view('profile.calendar'); 
+        return view('calendar'); 
     }
 }
