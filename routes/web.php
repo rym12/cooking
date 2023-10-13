@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/calendar', function () {
     return view('calendar');
 });
+
+Route::get('/profile/calendar', [ProfileController::class, 'calendar'])->name('profile.calendar');
 
 Route::get('/', function () {
     return view('welcome');
