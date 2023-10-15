@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +16,27 @@ use App\Http\Controllers\CalendarController;
 |
 */
 
+Route::get('/family/chat', [ChatController::class, 'chat'])->name('family.chat');
+
+Route::get('/chat', function () {
+    return view('chat');
+});
+
+
+
+
+
+
 Route::get('/calendar', function () {
     return view('calendar');
 });
 
 Route::get('/profile/calendar', [ProfileController::class, 'calendar'])->name('profile.calendar');
+
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,4 +52,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
