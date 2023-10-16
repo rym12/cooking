@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\ScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,11 @@ use App\Http\Controllers\CalendarController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// イベント登録処理
+Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('schedule-add');
+// イベント取得処理
+Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
 
 Route::get('/calendar', function () {
     return view('calendar');
