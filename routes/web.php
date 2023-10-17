@@ -22,8 +22,10 @@ Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('
 Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
 
 Route::get('/calendar', function () {
-    return view('calendar');
-});
+    return view('calendar');})->name('calendar');
+
+Route::get('/home', function () {
+    return view('home');})->name('home');
 
 Route::get('/profile/calendar', [ProfileController::class, 'calendar'])->name('profile.calendar');
 
