@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <div class="container">
-    <form action="{{ route('family.send') }}" method="post">
+    <form action="{{ route('family.send') }}" method="POST">
         @csrf
         <label for="family_id">Family id を入力してください</label>
         <input type="text" id="family_id" name="family_id" placeholder="入力してください">

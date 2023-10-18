@@ -31,8 +31,7 @@ Route::get('/family', function () {
 Route::get('/create_family', function () {
     return view('create_family');})->name('create_family');
 
-Route::post('/family/send', [FamilyController::class, 'processForm'])->name('family.send');
-
+Route::post('/family/create', [FamilyController::class, 'create_family'])->name('family.create');
 
 Route::get('/participate_family', function () {
     return view('participate_family');})->name('participate_family');
@@ -43,7 +42,7 @@ Route::get('/home', function () {
 Route::get('/profile/calendar', [ProfileController::class, 'calendar'])->name('profile.calendar');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('family');
 });
 
 Route::get('/dashboard', function () {

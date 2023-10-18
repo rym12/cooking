@@ -11,7 +11,7 @@
     Familyを作る
     </a>
     <!-- Familyに参加する button -->
-    <a href="{{ route('participate_family') }}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+    <a href="{{ route('home') }}" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
         Familyに参加する
     </a>
 </div>
