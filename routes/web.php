@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\FamilyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,18 @@ Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('
 
 Route::get('/calendar', function () {
     return view('calendar');})->name('calendar');
+
+Route::get('/family', function () {
+    return view('family');})->name('family');
+
+Route::get('/create_family', function () {
+    return view('create_family');})->name('create_family');
+
+Route::post('/family/send', [FamilyController::class, 'processForm'])->name('family.send');
+
+
+Route::get('/participate_family', function () {
+    return view('participate_family');})->name('participate_family');
 
 Route::get('/home', function () {
     return view('home');})->name('home');
