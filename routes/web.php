@@ -36,8 +36,7 @@ Route::post('/family/create', [FamilyController::class, 'create_family'])->name(
 Route::get('/participate_family', function () {
     return view('participate_family');})->name('participate_family');
 
-Route::get('/home', function () {
-    return view('home');})->name('home');
+Route::get('/home', [FamilyController::class, 'showFamilyMembers'])->name('home');
 
 Route::get('/profile/calendar', [ProfileController::class, 'calendar'])->name('profile.calendar');
 

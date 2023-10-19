@@ -33,4 +33,16 @@ class FamilyController extends Controller
         // 成功メッセージを含むページへリダイレクト
         return view('home');
     }
+
+
+    public function showFamilyMembers() {
+        // ログインユーザーのfamily_idを取得
+        $family_id = Auth::user()->family_id;
+
+        // そのfamily_idと一致するユーザーを取得
+        $familyMembers = User::where('family_id', $family_id)->get();
+
+        // ビューにデータを渡して表示
+        return view('home', ['users' => $familyMembers]);
+}
 }
