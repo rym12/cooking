@@ -25,8 +25,8 @@ Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('
 Route::get('/calendar', function () {
     return view('calendar');})->name('calendar');
 
-Route::get('/family', function () {
-    return view('family');})->name('family');
+Route::get('/dashboard', function () {
+    return view('family');})->name('dashboard');
 
 Route::get('/create_family', function () {
     return view('create_family');})->name('create_family');
@@ -42,12 +42,8 @@ Route::get('/home', function () {
 Route::get('/profile/calendar', [ProfileController::class, 'calendar'])->name('profile.calendar');
 
 Route::get('/', function () {
-    return view('family');
+    return view('welcome');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
