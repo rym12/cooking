@@ -1,0 +1,15 @@
+.chat-message {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px;
+}
+
+.my-message {
+    background-color: #e6f7ff;
+    /* 自分のメッセージの背景色 */
+}
+
+.other-message {
+    background-color: #f0f0f0;
+    /* 他のユーザーのメッセージの背景色 */
+}

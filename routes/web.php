@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ScheduleController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +22,12 @@ Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('
 Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
 
 Route::get('/calendar', function () {
-    return view('calendar');})->name('calendar');
+    return view('calendar');
+})->name('calendar');
 
 Route::get('/home', function () {
-    return view('home');})->name('home');
+    return view('home');
+})->name('home');
 
 Route::get('/profile/calendar', [ProfileController::class, 'calendar'])->name('profile.calendar');
 
@@ -43,4 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+
+Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
+Route::post('/chat', [ChatController::class, 'store'])->name('chat.store');
+
+require __DIR__ . '/auth.php';
