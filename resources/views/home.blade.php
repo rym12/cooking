@@ -30,18 +30,15 @@
         <!-- Family List -->
         <div class="absolute bottom-4 right-4">
             @foreach($users as $user)
-                <div class="flex justify-between items-center bg-white p-2 mb-2 rounded">
+                <div class="flex justify-between items-center bg-white p-4 mb-4 rounded" style="font-size: 2em;">
                     {{ $user->name }}
-                    <select class="border bg-gray-100 rounded">
+                    <select class="border bg-gray-100 rounded" style="font-size: 0.5em; padding: 0.5em 1em;">
                         <option value="sleeping">就寝中</option>
                         <option value="out">外出中</option>
                         <option value="home">家</option>
                     </select>
                 </div>
             @endforeach
-        </div>
-
-
         </div>
     </div>
 </div>

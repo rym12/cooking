@@ -12,10 +12,20 @@ class FamilyController extends Controller
     public function create_family(Request $request) {
         
         // バリデーション
+        $messages = [
+            'family_id.required' => '家族IDは必須です。',
+            'family_id.integer' => '家族IDは整数である必要があります。',
+            'family_id.unique' => 'この家族IDはすでに存在します。',
+            'family_name.required' => '家族名は必須です。',
+            'family_name.string' => '家族名は文字列である必要があります。',
+            'family_name.max' => '家族名は255文字以内で入力してください。',
+        ];
+
         $validatedData = $request->validate([
-            'family_id' => 'required|integer|unique:families,id', // familiesテーブルのfamily_idカラムにユニークであることを確認
+            'family_id' => 'required|integer|unique:families,id',
             'family_name' => 'required|string|max:255',
-        ]);
+        ], $messages);
+
 
         // Familyテーブルにデータを保存
         $family = new Family;
@@ -30,8 +40,11 @@ class FamilyController extends Controller
         $user->family_name = $request->input('family_name');
         $user->save();
 
-        // 成功メッセージを含むページへリダイレクト
-        return view('home');
+        // そのfamily_idと一致するユーザーを取得
+        $familyMembers = User::where('family_id', $request->input('family_id'))->get();
+
+        // ビューにデータを渡して表示
+        return view('home', ['users' => $familyMembers]);
     }
 
 
