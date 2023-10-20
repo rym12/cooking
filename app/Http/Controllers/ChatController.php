@@ -10,7 +10,7 @@ class ChatController extends Controller
 {
     public function index()
     {
-        $chats = Chat::latest()->get();
+        $chats = Chat::latest()->take(5)->get();
         return view('chat.index', compact('chats'));
     }
 
