@@ -33,7 +33,7 @@
                 <a href="{{ route('chat.index') }}" class="block w-64 h-32 mx-auto px-6 py-6 bg-gray-400 text-black rounded-full flex items-center justify-center">Chat</a>
             </div>
          </div>
-       
+        
 
          <!-- Family List -->
          <div class="absolute bottom-4 right-4">
@@ -48,7 +48,9 @@
                 </div>
             @endforeach
          </div>
+         
        </div>
     </div>
+    
 </body>
 </html>
