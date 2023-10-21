@@ -22,6 +22,8 @@ Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('
 // イベント取得処理
 Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
 
+Route::get('/profile/calendar', [ProfileController::class, 'calendar'])->name('profile.calendar');
+
 Route::get('/calendar', function () {
     return view('calendar');
 })->name('calendar');
