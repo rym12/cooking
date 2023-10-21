@@ -22,8 +22,8 @@ Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('
 // イベント取得処理
 Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
 
-Route::get('/calendar', function () {
-    return view('calendar');})->name('calendar');
+
+Route::get('/calendar', [ScheduleController::class, 'showCalendar'])->name('calendar');
 
 Route::get('/dashboard', function () {
     return view('family');})->name('dashboard');
@@ -37,8 +37,6 @@ Route::get('/participate_family', function () {
     return view('participate_family');})->name('participate_family');
 
 Route::get('/home', [FamilyController::class, 'showFamilyMembers'])->name('home');
-
-Route::get('/profile/calendar', [ProfileController::class, 'calendar'])->name('profile.calendar');
 
 Route::get('/', function () {
     return view('welcome');

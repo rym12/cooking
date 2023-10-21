@@ -16,6 +16,7 @@
         <div>
             <a href="{{ route('calendar') }}" class="block w-full px-6 py-2 bg-blue-500 text-white text-center rounded">Calendar</a>
         </div>
+        
 
 
         <!-- Chat Button -->

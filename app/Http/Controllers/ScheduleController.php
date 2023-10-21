@@ -63,4 +63,9 @@ class ScheduleController extends Controller
             ->where('start_date', '<', $end_date)
             ->get();
     }
+
+    public function showCalendar(){
+        // カレンダー関連の処理を記述
+        return view('calendar');
+    }
 }
