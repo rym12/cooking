@@ -1,9 +1,8 @@
-<x-app-layout>
-    <x-slot name="header">
+<html>
+    <head>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </x-slot>
-
+    </head>
+<body>
     <div id='calendar'></div>
-
-    <br></br>
-</x-app-layout>
+</body>
+</html>
