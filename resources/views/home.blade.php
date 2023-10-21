@@ -9,27 +9,34 @@
     
 </head>
 <body class="bg-gray-100">
+    <div class="mt-2">
+        <form method="POST" action="{{ route('logout') }}" class="inline">
+         @csrf
+          <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="inline-block px-4 py-2 border border-black text-black rounded">
+            {{ __('Log Out') }}
+          </a>
+        </form>
+    </div>
 
-<div class="container mx-auto mt-12 p-4">
-    <div class="grid grid-cols-3 gap-4">
-        <!-- Calendar Button -->
-        <div>
+    <div class="container mx-auto mt-12 p-4">
+        <div class="grid grid-cols-3 gap-4">
+         <!-- Calendar Button -->
+         <div>
             <a href="{{ route('calendar') }}" class="block w-full px-6 py-2 bg-blue-500 text-white text-center rounded">Calendar</a>
-        </div>
+         </div>      
+    
         
-
-
-        <!-- Chat Button -->
-        <div class="flex items-center justify-center h-screen">
+         <!-- Chat Button -->
+         <div class="flex items-center justify-center h-screen">
             <div class="block w-64 h-32 mx-auto px-6 py-6 bg-gray-400 text-black rounded-full flex items-center justify-center">
                 <!-- ここのhrefにはchat機能のrouteを参照してください。byいいだ -->
                 <a href="{{ route('chat.index') }}" class="block w-64 h-32 mx-auto px-6 py-6 bg-gray-400 text-black rounded-full flex items-center justify-center">Chat</a>
             </div>
-        </div>
+         </div>
        
 
-        <!-- Family List -->
-        <div class="absolute bottom-4 right-4">
+         <!-- Family List -->
+         <div class="absolute bottom-4 right-4">
             @foreach($users as $user)
                 <div class="flex justify-between items-center bg-white p-4 mb-4 rounded" style="font-size: 2em;">
                     {{ $user->name }}
@@ -40,9 +47,8 @@
                     </select>
                 </div>
             @endforeach
-        </div>
+         </div>
+       </div>
     </div>
-</div>
-
 </body>
 </html>
