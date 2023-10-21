@@ -57,8 +57,10 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> true_main
+    public function calendar()
+    {
+        // カレンダー関連の処理を記述
+        return view('calendar');
+    }
 }
