@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ScheduleController;
+<<<<<<< HEAD
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
+=======
 use App\Http\Controllers\FamilyController;
+>>>>>>> true_main
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +25,18 @@ Route::post('/schedule-add', [ScheduleController::class, 'scheduleAdd'])->name('
 // イベント取得処理
 Route::post('/schedule-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
 
+<<<<<<< HEAD
+Route::get('/calendar', function () {
+    return view('calendar');
+})->name('calendar');
+
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+=======
 
 Route::get('/calendar', [ScheduleController::class, 'showCalendar'])->name('calendar');
+>>>>>>> true_main
 
 Route::get('/dashboard', function () {
     return view('family');})->name('dashboard');
@@ -48,4 +61,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+
+Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
+Route::post('/chat', [ChatController::class, 'store'])->name('chat.store');
+
+require __DIR__ . '/auth.php';
