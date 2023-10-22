@@ -58,4 +58,17 @@ class FamilyController extends Controller
         // ビューにデータを渡して表示
         return view('home', ['users' => $familyMembers]);
 }
+
+    public function participate(Request $request) {
+        // Userテーブルにfamily_idを登録
+        $auth = Auth::user()->id;
+        $user = User::find($auth);
+        $user->family_id = $request->input('family_id');
+        $user->save();
+        // そのfamily_idと一致するユーザーを取得
+        $familyMembers = User::where('family_id', $request->input('family_id'))->get();
+
+        // ビューにデータを渡して表示
+        return view('home', ['users' => $familyMembers]);
+    }
 }

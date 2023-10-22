@@ -37,9 +37,11 @@ Route::get('/create_family', function () {
 
 Route::post('/family/create', [FamilyController::class, 'create_family'])->name('family.create');
 
-Route::get('/participate_family', function () {
+Route::match(['get','post'], '/participate_family', [FamilyController::class, 'participate'])->name('participate_family');
+
+Route::get('/paticipate', function() {
     return view('participate_family');
-})->name('participate_family');
+})->name('participate');
 
 Route::get('/home', [FamilyController::class, 'showFamilyMembers'])->name('home');
 
